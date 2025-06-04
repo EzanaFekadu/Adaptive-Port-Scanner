@@ -1,0 +1,1859 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Enhanced Scan Results</title>
+        <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f7f8; color: #333; }
+        h1 { color: #2c3e50; }
+        table { border-collapse: collapse; width: 100%; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #2980b9; color: white; cursor: pointer; }
+        tr:nth-child(even) { background-color: #ecf0f1; }
+        tr:hover { background-color: #d1dbe5; }
+        .open { color: green; font-weight: bold; }
+        .closed { color: red; font-weight: bold; }
+        .summary { margin-bottom: 20px; padding: 15px; background: #3498db; color: white; border-radius: 5px; }
+        pre { background: #ecf0f1; padding: 10px; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word; }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 220px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -110px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        </style>
+        <script>
+        function sortTable(n) {
+            var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+            table = document.getElementById("scanTable");
+            switching = true;
+            dir = "asc";
+            while (switching) {
+            switching = false;
+            rows = table.rows;
+            for (i = 1; i < (rows.length - 1); i++) {
+                shouldSwitch = false;
+                x = rows[i].getElementsByTagName("TD")[n];
+                y = rows[i + 1].getElementsByTagName("TD")[n];
+                if (dir == "asc") {
+                if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                    shouldSwitch= true;
+                    break;
+                }
+                } else if (dir == "desc") {
+                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+                    shouldSwitch = true;
+                    break;
+                }
+                }
+            }
+            if (shouldSwitch) {
+                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                switching = true;
+                switchcount ++;
+            } else {
+                if (switchcount == 0 && dir == "asc") {
+                dir = "desc";
+                switching = true;
+                }
+            }
+            }
+        }
+        </script>
+        </head>
+        <body>
+        <h1>Enhanced Scan Results</h1>
+        <div class="summary">
+        <strong>Total Scans:</strong> 87<br>
+        <strong>Open Ports:</strong> 3<br>
+        <strong>Closed Ports:</strong> 84<br>
+        <strong>Hosts Scanned:</strong> 2
+        </div>
+        <table id="scanTable">
+        <thead>
+            <tr>
+            <th onclick="sortTable(0)">Target</th>
+            <th onclick="sortTable(1)">Port</th>
+            <th onclick="sortTable(2)">Protocol</th>
+            <th onclick="sortTable(3)">Service</th>
+            <th>Banner / Info</th>
+            <th onclick="sortTable(5)">Status</th>
+            <th onclick="sortTable(6)">Timestamp</th>
+            <th onclick="sortTable(7)">Timeout Used (s)</th>
+            <th onclick="sortTable(8)">Retries</th>
+            </tr>
+        </thead>
+        <tbody>
+        
+            <tr class="open">
+            <td>45.33.32.156</td>
+            <td>22</td>
+            <td>TCP</td>
+            <td>
+                
+                <div class="tooltip">SSH
+                    <span class="tooltiptext">Common or banner-identified service</span>
+                </div>
+                
+            </td>
+            <td>
+                
+                <pre>SSH-2.0-OpenSSH_6.6.1p1 Ubuntu-2ubuntu2.13
+Protocol mismatch.</pre>
+                
+            </td>
+            <td>open</td>
+            <td>2025-06-04 16:37:02</td>
+            <td>1.00</td>
+            <td>1</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>23</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:04</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>26</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:04</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>30</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:04</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>29</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>38</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>39</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>24</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>34</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>27</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>21</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>36</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>28</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>31</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>25</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>32</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>20</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>35</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>33</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>37</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>40</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:05</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>44</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>51</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>41</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>55</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>52</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>42</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>49</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>53</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>46</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>50</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>47</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>43</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>45</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>48</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>58</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>57</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>54</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>56</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>59</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>60</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:08</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="open">
+            <td>45.33.32.156</td>
+            <td>80</td>
+            <td>TCP</td>
+            <td>
+                
+                <div class="tooltip">HTTP
+                    <span class="tooltiptext">Common or banner-identified service</span>
+                </div>
+                
+            </td>
+            <td>
+                
+                <pre>No banner</pre>
+                
+            </td>
+            <td>open</td>
+            <td>2025-06-04 16:37:09</td>
+            <td>1.00</td>
+            <td>1</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>62</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>64</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>63</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>70</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>61</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>68</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>73</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>74</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>71</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>72</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>66</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>65</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>67</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>75</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>69</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>76</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>77</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>79</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>78</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:11</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>81</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:12</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="open">
+            <td>96.7.128.198</td>
+            <td>80</td>
+            <td>TCP</td>
+            <td>
+                
+                <div class="tooltip">HTTP
+                    <span class="tooltiptext">Common or banner-identified service</span>
+                </div>
+                
+            </td>
+            <td>
+                
+                <pre>No banner</pre>
+                
+            </td>
+            <td>open</td>
+            <td>2025-06-04 16:37:13</td>
+            <td>1.00</td>
+            <td>1</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>83</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>85</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>82</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>84</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>86</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>89</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>88</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>90</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>87</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>92</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>99</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>96</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>95</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>91</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>97</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>94</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>93</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>98</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>45.33.32.156</td>
+            <td>100</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:14</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>96.7.128.198</td>
+            <td>81</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:16</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>96.7.128.198</td>
+            <td>85</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:17</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>96.7.128.198</td>
+            <td>82</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:17</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>96.7.128.198</td>
+            <td>83</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:17</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+            <tr class="closed">
+            <td>96.7.128.198</td>
+            <td>84</td>
+            <td>TCP</td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>
+                
+                -
+                
+            </td>
+            <td>closed</td>
+            <td>2025-06-04 16:37:17</td>
+            <td>1.00</td>
+            <td>3</td>
+            </tr>
+        
+        </tbody>
+        </table>
+        <p>Click on the table headers to sort the columns.</p>
+    </body>
+    </html>
+    
