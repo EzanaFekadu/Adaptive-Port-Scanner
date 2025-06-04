@@ -41,3 +41,9 @@ htmlcov/
 # OneDrive sync files
 ~$*
 *.tmp
+
+# Scan results
+scan_results/
+scan_results/*.json
+scan_results/*.csv
+scan_results/*.html
